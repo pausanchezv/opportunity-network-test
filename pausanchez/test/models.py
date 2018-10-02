@@ -5,6 +5,12 @@ from django.db import models
 
 # Create your models here.
 
+'''
+This file represents the application model.
+It is not necessary to interact directly with the database since this file can easily be changed and then
+a migration can be made through the console to update automatically the database. Cool!
+'''
+
 
 class Publication(models.Model):
 

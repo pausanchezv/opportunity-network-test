@@ -59,8 +59,12 @@
                     // actions to do if the publication has been deleted successfully by the back-end
                     $("#box-" + data).remove();
                     var counter = $("#counter").find('span');
-                    counter.html(counter.html() - 1)
-                    $(".publications").html('<p class="empty-pubs text-center"><em>{{ " - There are no publications yet" }}</em></p>');
+                    var num = counter.html() - 1;
+                    counter.html(num);
+
+                    if (num < 1) {
+                        $(".publications").html('<p class="empty-pubs text-center"><em>{{ " - There are no publications yet" }}</em></p>');
+                    }
                 });
             });
         });
