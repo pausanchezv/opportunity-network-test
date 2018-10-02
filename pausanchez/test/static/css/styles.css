@@ -1,0 +1,185 @@
+/**
+CSS by Pau Sanchez
+**/
+
+body {
+    background-color: #EEE;
+    margin:0;
+    padding:0;
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif, serif;
+    color: #333;
+}
+
+a, a:hover, a:visited {
+    text-decoration: none;
+}
+
+.clear {
+    clear: both;
+}
+
+#container {
+    background-color: #FFF;
+    width: 860px;
+    margin: 0 auto;
+    padding:20px;
+    overflow: hidden;
+}
+
+form {
+    margin-top:10px;
+    margin-bottom: 40px;
+}
+
+form > label,
+form > input[type="text"],
+form > input[type="email"],
+form > textarea {
+    float: left;
+    clear: both;
+    min-width:60%;
+}
+
+form > label {
+    margin-top:20px;
+    margin-bottom: 3px;
+    font-size: 15px;
+}
+
+form > input[type="text"],
+form > input[type="email"],
+form > textarea {
+    border-radius: 3px;
+    border: 1px #CCC solid;
+    padding:7px;
+}
+
+.button {
+    border: none;
+    background-color: rgb(255, 39, 81);
+    color: #FFF;
+    padding: 10px 50px;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.button.green {
+    background-color: green;
+}
+
+header {
+    padding: 20px;
+    background-color: #EEE;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+header > a > img {
+    width:170px;
+    float: left;
+}
+
+header > div {
+    float: right;
+}
+
+header > div > p {
+    float: right;
+    clear: both;
+    margin: 5px 0 0 0;
+    color: #666;
+}
+
+header > div > p > small {
+    color: orangered;
+}
+
+h2 {
+    margin:40px 0 10px 0;
+}
+
+h4 {
+    margin:0;
+    color: #999;
+}
+
+h4 > em {
+    color: #777;
+}
+
+.view-pubs {
+    padding:7px 20px 40px 20px;
+    background-color: #EEE;
+}
+
+.view-pubs > p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.view-pubs > p > a {
+    color: orangered;
+    text-decoration: underline;
+}
+
+.center {
+    text-align: center;
+}
+
+.box {
+    background-color: #EEE;
+    padding: 20px 20px 20px 20px;
+    margin-top:20px;
+    border-radius: 5px;
+    border:1px solid #CCC;
+    overflow: hidden;
+}
+
+.box > p {
+    margin:5px;
+}
+
+.box > p.username {
+    font-weight: 700;
+}
+
+.box > p.email {
+    font-style: italic;
+    color: #666;
+}
+
+.box > p.note {
+    margin-top: 20px;
+    font-size: 22px;
+}
+
+.simple-shadow {
+    box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+
+.publications {
+    margin:40px 0;
+}
+
+p.empty-pubs {
+    font-size: 30px;
+    color: darkred;
+}
+
+h2.pubs > small {
+    color: #999;
+}
+
+.box a {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 13px;
+    width:auto;
+    float: right;
+}
+
+.box a:hover {
+    text-decoration: underline;
+}

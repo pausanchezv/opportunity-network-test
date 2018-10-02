@@ -1,0 +1,24 @@
+{% extends "includes/base.html" %}
+{% block content %}
+    <!-- Using the include tag so as not to repeat unnecessary code -->
+    {% include "includes/header.html" %}
+    <div class="clear"></div>
+
+    <!-- index components -->
+    <h2>Do you want to write a publication?</h2>
+    <h4>Write your publication and let yourself be known by becoming a new publisher! <em>Isn't it cool?</em></h4>
+
+    <!-- Django predefined forms -->
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <div class="clear"></div>
+        <input type="submit" class="button simple-shadow" value="Publish your note" />
+    </form>
+
+    <div class="view-pubs center simple-shadow">
+        <p>Or you can also <a href="{% url 'publications' %}">view all publications</a> by clicking the button!</p>
+        <a href="{% url 'publications' %}" class="button green simple-shadow">View all publications</a>
+    </div>
+    <!-- /index components-->
+{% endblock %}

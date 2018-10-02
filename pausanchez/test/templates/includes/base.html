@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <title>Opportunity Network Test</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" />
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+</head>
+<body>
+    <div id="container" class="simple-shadow">
+
+        <!-- Every block here will always be different to each other -->
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

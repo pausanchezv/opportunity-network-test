@@ -1,0 +1,68 @@
+{% extends "includes/base.html" %}
+{% block content %}
+    <!-- Using the include tag so as not to repeat unnecessary code -->
+    {% include "includes/header.html" %}
+    <div class="clear"></div>
+
+    <h2 class="pubs">Publications <small id="counter">(<span>{{ publications | length }}</span>)</small></h2>
+    <h4>You can take a glance at the publications or <a href="{% url 'index' %}">write one</a></h4>
+
+    <!-- Publications container -->
+    <div class="publications">
+
+        <!-- Check if there are publications -->
+        {% if publications|length > 0 %}
+
+            <!-- Loop the publications and show them -->
+            {% for publication in publications %}
+                <div id="box-{{ publication.id  }}" class="box">
+                    <p class="username">{{ publication.username }}</p>
+                    <p class="email">{{ publication.email }}</p>
+                    <p class="note">{{ publication.note }}</p>
+                    <div>
+                        <p class="remove_button" id="remove_{{ publication.id }}"><small><a href="javascript:">Remove publication</a></small></p>
+                    </div>
+                </div>
+            {%  endfor %}
+
+        <!-- Show a message if there are no available publications -->
+        {% else %}
+            <p class="empty-pubs text-center"><em>{{ " - There are no publications yet" }}</em></p>
+        {% endif %}
+
+    </div>
+    <!-- /Publications container -->
+
+    <!-- page components -->
+    <div class="view-pubs center simple-shadow">
+        <p>Or you can also <a href="{% url 'index' %}">go back to the landing page</a> by clicking the button!</p>
+        <a href="{% url 'index' %}" class="button green simple-shadow">Go back to the landing page</a>
+    </div>
+    <!-- /page components-->
+
+    <script>
+
+        // execute when document is ready
+        $(document).ready(function() {
+
+            // setting csrf AJAX
+            $.ajaxSetup({
+              data: {csrfmiddlewaretoken: '{{ csrf_token }}' }
+            });
+
+            // removing a publication without refreshing the web page
+            $(".remove_button").click(function() {
+
+                // all data base modifications should be done via POST, not GET
+                $.post("{% url 'remove_publication' %}", {id: this.id}, function(data) {
+
+                    // actions to do if the publication has been deleted successfully by the back-end
+                    $("#box-" + data).remove();
+                    var counter = $("#counter").find('span');
+                    counter.html(counter.html() - 1)
+                    $(".publications").html('<p class="empty-pubs text-center"><em>{{ " - There are no publications yet" }}</em></p>');
+                });
+            });
+        });
+    </script>
+{% endblock %}
